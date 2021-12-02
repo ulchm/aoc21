@@ -1,13 +1,34 @@
 from timeit import timeit
 
-lines = open('01.txt').readlines()
-# numbers = [int(x) for x in open('01.txt').readlines()]
+lines = open('02.txt').readlines()
 
 def part1():
-    pass
+    forward = 0
+    depth = 0
+    for line in lines:
+        direction, units = str.split(line)
+        if direction == "up":
+            depth -= int(units)
+        elif direction == "down":
+            depth += int(units)
+        else:
+            forward += int(units)
+    print("Grand Total: {}".format(depth * forward))
 
 def part2():
-    pass
+    forward = 0
+    aim = 0
+    depth = 0
+    for line in lines:
+        direction, units = str.split(line)
+        if direction == "up":
+            aim -= int(units)
+        elif direction == "down":
+            aim += int(units)
+        else:
+            forward += int(units)
+            depth += aim * int(units)
+    print("Grand Total: {}".format(depth * forward))
 
 if __name__ == '__main__':
     print("Part 1: ", end="")
