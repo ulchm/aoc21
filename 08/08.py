@@ -1,10 +1,17 @@
 from timeit import timeit
 
-lines = open('01.txt').readlines()
+lines = open('08.txt').readlines()
 # numbers = [int(x) for x in open('01.txt').readlines()]
 
 def part1():
-    pass
+    right_side = [line.split(' | ')[1].strip() for line in lines]
+    total = 0
+    for line in right_side:
+        for seq in line.split(' '):
+            if len(seq) == 2 or len(seq) == 3 or len(seq) == 4 or len(seq) == 7:
+                total += 1
+    print("1, 4, 7, 8 appear a total of: {} times".format(total))
+
 
 def part2():
     pass
